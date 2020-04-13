@@ -380,12 +380,12 @@ namespace Details {
 template <typename T, typename Tag>
 struct SafeType
 {
-    SafeType(T t)
+    constexpr SafeType(T t)
         : m_Value(std::move(t))
     {
     }
 
-    SafeType(const SafeType&) = default;
+    constexpr SafeType(const SafeType&) = default;
 
     template <typename T2, typename Tag2>
     SafeType(
@@ -395,11 +395,11 @@ struct SafeType
             typename std::enable_if<!std::is_same<Tag, Tag2>::value, Tag2>::type
         >&) = delete;
 
-    SafeType& operator=(const SafeType&) = default;
+    constexpr SafeType& operator=(const SafeType&) = default;
 
-    explicit operator T() const { return Get(); }
+    constexpr explicit operator T() const { return Get(); }
 
-    T Get() const { return m_Value; }
+    constexpr T Get() const { return m_Value; }
 
 private:
     T m_Value;
@@ -414,7 +414,7 @@ struct SafePointerType
 
     using SafeType<uintptr_t, Tag>::SafeType;
 
-    SafePointerType()
+    constexpr SafePointerType()
         : SafePointerType(Invalid)
     {
     }
@@ -422,7 +422,7 @@ struct SafePointerType
     template <typename T = void> explicit SafePointerType(T* ptr): SafePointerType(reinterpret_cast<uintptr_t>(ptr)) {}
     template <typename T = void> T* AsPointer() const { return reinterpret_cast<T*>(this->Get()); }
 
-    explicit operator bool() const { return *this != Invalid; }
+    constexpr explicit operator bool() const { return *this != Invalid; }
 };
 
 template <typename Tag>
