@@ -13,7 +13,7 @@
 
 
 //------------------------------------------------------------------------------
-# include "imgui_node_editor.h"
+# include "ImGuiUX/DmdNodeEditor/NodeEditor/include/imgui_node_editor.h"
 
 
 //------------------------------------------------------------------------------
