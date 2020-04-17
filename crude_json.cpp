@@ -53,6 +53,8 @@ value::value(const value& other)
     }
 }
 
+#pragma warning( push )
+#pragma warning( disable : 4715 ) //not all control paths return a value
 value& value::operator[](size_t index)
 {
     if (is_null())
@@ -105,6 +107,7 @@ const value& value::operator[](const string& key) const
     CRUDE_ASSERT(false && "operator[] on unsupported type");
     std::terminate();
 }
+#pragma warning( pop )
 
 bool value::contains(const string& key) const
 {
