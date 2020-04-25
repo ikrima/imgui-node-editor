@@ -2215,7 +2215,7 @@ ed::Control ed::EditorContext::BuildControl(bool allowOffscreen)
     // Process live nodes and pins.
     for (auto nodeIt = m_Nodes.rbegin(), nodeItEnd = m_Nodes.rend(); nodeIt != nodeItEnd; ++nodeIt)
     {
-        auto node = *nodeIt;
+        Node* node = *nodeIt;
 
         if (!node->m_IsLive) continue;
 
