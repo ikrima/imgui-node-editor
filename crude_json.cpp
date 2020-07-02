@@ -171,7 +171,7 @@ size_t value::erase(const string& key)
     return 1;
 }
 
-void value::swap(value& other)
+void value::swap(value& other) noexcept
 {
     using std::swap;
 

@@ -449,7 +449,7 @@ void ImGuiEx::Canvas::EnterLocalSpace()
     for (auto i = 0; i < IM_ARRAYSIZE(m_MouseClickedPosBackup); ++i)
         io.MouseClickedPos[i] = (m_MouseClickedPosBackup[i] - m_ViewTransformPosition) * m_View.InvScale;
 
-    m_ViewRect = CalcViewRect(m_View);;
+    m_ViewRect = CalcViewRect(m_View);
 
     auto& fringeScale = ImFringeScaleRef(m_DrawList);
     m_LastFringeScale = fringeScale;

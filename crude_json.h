@@ -118,9 +118,9 @@ struct value
 
     string dump(const int indent = -1, const char indent_char = ' ') const;
 
-    void swap(value& other);
+    void swap(value& other) noexcept;
 
-    inline friend void swap(value& lhs, value& rhs) { lhs.swap(rhs); }
+    inline friend void swap(value& lhs, value& rhs) noexcept { lhs.swap(rhs); }
 
     // Returns discarded value for invalid inputs.
     static value parse(const string& data);
