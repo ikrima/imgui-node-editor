@@ -743,7 +743,7 @@ struct AnimationController
 struct FlowAnimationController final : AnimationController
 {
     FlowAnimationController(EditorContext* editor);
-    virtual ~FlowAnimationController();
+    virtual ~FlowAnimationController() override;
 
     void Flow(Link* link);
 
