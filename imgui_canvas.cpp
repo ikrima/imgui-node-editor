@@ -108,7 +108,7 @@ bool ImGuiEx::Canvas::Begin(ImGuiID id, const ImVec2& size)
     // call canvas API with different one.
     m_ExpectedChannel = m_DrawList->_Splitter._Current;
 
-    // #debug: Canvas content.
+    // #DmdEditor-debug: Canvas content.
     //m_DrawList->AddRectFilled(m_StartPos, m_StartPos + m_CurrentSize, IM_COL32(0, 0, 0, 64));
     m_DrawList->AddRect(m_WidgetRect.Min, m_WidgetRect.Max, IM_COL32(255, 0, 255, 64));
 
@@ -158,7 +158,7 @@ void ImGuiEx::Canvas::End()
     ImGui::SetCursorScreenPos(m_WidgetPosition);
     ImGui::Dummy(m_WidgetSize);
 
-    // #debug: Rect around canvas. Content should be inside these bounds.
+    // #DmdEditor-debug: Rect around canvas. Content should be inside these bounds.
     //m_DrawList->AddRect(m_WidgetPosition - ImVec2(1.0f, 1.0f), m_WidgetPosition + m_WidgetSize + ImVec2(1.0f, 1.0f), IM_COL32(196, 0, 0, 255));
 
     m_InBeginEnd = false;

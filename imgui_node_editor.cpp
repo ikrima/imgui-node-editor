@@ -627,7 +627,7 @@ void ed::Node::Draw(ImDrawList* drawList, DrawFlags flags)
         }
 
 # if 0
-        // #debug: highlight group regions
+        // #DmdEditor-debug: highlight group regions
         auto drawRect = [drawList](const ImRect& rect, ImU32 color)
         {
             if (ImRect_IsEmpty(rect)) return;
@@ -1143,7 +1143,7 @@ void ed::EditorContext::Begin(const char* id, const ImVec2& size)
 
     m_Canvas.SetView(m_NavigateAction.GetView());
 
-    // #debug #clip
+    // #DmdEditor-debug #clip
     //ImGui::Text("CLIP = { x=%g y=%g w=%g h=%g r=%g b=%g }",
     //    clipMin.x, clipMin.y, clipMax.x - clipMin.x, clipMax.y - clipMin.y, clipMax.x, clipMax.y);
 
@@ -1404,7 +1404,7 @@ void ed::EditorContext::End()
         ImDrawList_TranslateAndClampClipRects(drawList, c_BackgroundChannelStart, drawList->_ChannelsCount - 1, clipTranslation);
         ImGui::PopClipRect();
 
-        // #debug: Static grid in local space
+        // #DmdEditor-debug: Static grid in local space
         //for (float x = 0; x < Canvas.WindowScreenSize.x; x += 100)
         //    drawList->AddLine(ImVec2(x, 0.0f) + Canvas.WindowScreenPos, ImVec2(x, Canvas.WindowScreenSize.y) + Canvas.WindowScreenPos, IM_COL32(255, 0, 0, 128));
         //for (float y = 0; y < Canvas.WindowScreenSize.y; y += 100)
@@ -1448,7 +1448,7 @@ void ed::EditorContext::End()
 
     m_DrawList->ChannelsMerge();
 
-    // #debug
+    // #DmdEditor-debug
     // drawList->AddRectFilled(ImVec2(-10.0f, -10.0f), ImVec2(10.0f, 10.0f), IM_COL32(255, 0, 255, 255));
 
     // ImGui::EndChild();
@@ -1467,7 +1467,6 @@ void ed::EditorContext::End()
         m_DrawList->AddRect(m_Canvas.Rect().Min, m_Canvas.Rect().Max, ImColor(borderColor));
     }
 
-    // #metrics
     // ShowMetrics(control);
 
     ImGui::PopID();
@@ -2106,7 +2105,7 @@ void ed::EditorContext::SetUserContext(bool globalSpace)
         m_DrawList->ChannelsSetCurrent(c_UserChannel_Content);
     }
 
-    // #debug
+    // #DmdEditor-debug
     // drawList->AddCircleFilled(ImGui::GetMousePos(), 4, IM_COL32(0, 255, 0, 255));
 }
 
@@ -2191,7 +2190,7 @@ ed::Control ed::EditorContext::BuildControl(bool allowOffscreen)
 
         auto result = invisibleButtonEx(idString, rect.GetSize(), extraFlags);
 
-        // #debug
+        // #DmdEditor-debug
         //m_DrawList->AddRectFilled(ImGui::GetItemRectMin(), ImGui::GetItemRectMax(), IM_COL32(0, 255, 0, 64));
 
         return result;
@@ -3129,7 +3128,7 @@ ed::EditorAction::AcceptResult ed::NavigateAction::Accept(const Control& control
         Editor->MakeDirty(SaveReasonFlags::Navigation);
     }
 
-    // // #debug
+    // // #DmdEditor-debug
     // if (m_DrawList)
     //     m_DrawList->AddCircleFilled(io.MousePos, 4.0f, IM_COL32(255, 0, 255, 255));
 
@@ -5090,10 +5089,10 @@ void ed::NodeBuilder::EndPin()
         m_CurrentPin->m_Pivot.Max = m_CurrentPin->m_Pivot.Min + ImMul(m_PivotSize, m_PivotScale);
     }
 
-    // #debug: Draw pin bounds
+    // #DmdEditor-debug: Draw pin bounds
     //Editor->GetDrawList()->AddRect(m_CurrentPin->m_Bounds.Min, m_CurrentPin->m_Bounds.Max, IM_COL32(255, 255, 0, 255));
 
-    // #debug: Draw pin pivot rectangle
+    // #DmdEditor-debug: Draw pin pivot rectangle
     //Editor->GetDrawList()->AddRect(m_CurrentPin->m_Pivot.Min, m_CurrentPin->m_Pivot.Max, IM_COL32(255, 0, 255, 255));
 
     m_CurrentPin = nullptr;
