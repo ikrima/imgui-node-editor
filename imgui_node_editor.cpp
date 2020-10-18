@@ -2538,7 +2538,7 @@ void ed::Settings::MakeDirty(SaveReasonFlags reason, Node* node)
     }
 }
 
-ES2WARN_DISABLE(4701 4703)
+ES2WRN_DISABLE_MSVC(4701 4703)
 std::string ed::Settings::Serialize()
 {
     json::value result;
@@ -2578,7 +2578,7 @@ std::string ed::Settings::Serialize()
 
     return result.dump();
 }
-ES2WARN_RESTORE()
+ES2WRN_RESTORE_MSVC()
 
 bool ed::Settings::Parse(const std::string& string, Settings& settings)
 {
