@@ -530,7 +530,7 @@ static void ImDrawList_AddBezierWithArrows(ImDrawList* drawList, const ImCubicBe
 
         ImDrawList_PathBezierOffset(drawList, half_thickness, curve.P3, curve.P2, curve.P1, curve.P0);
 
-        drawList->PathStroke(color, true, strokeThickness);
+        drawList->PathStroke(color, ImDrawFlags_Closed, strokeThickness);
     }
 }
 
@@ -624,7 +624,7 @@ void ed::Node::Draw(ImDrawList* drawList, DrawFlags flags)
                 drawList->AddRect(
                     m_GroupBounds.Min,
                     m_GroupBounds.Max,
-                    m_GroupBorderColor, m_GroupRounding, 15, m_GroupBorderWidth);
+                    m_GroupBorderColor, m_GroupRounding, ImDrawFlags_RoundCornersAll, m_GroupBorderWidth);
             }
         }
 
@@ -675,7 +675,7 @@ void ed::Node::DrawBorder(ImDrawList* drawList, ImU32 color, float thickness)
     if (thickness > 0.0f)
     {
         drawList->AddRect(m_Bounds.Min, m_Bounds.Max,
-            color, m_Rounding, 15, thickness);
+            color, m_Rounding, ImDrawFlags_RoundCornersAll, thickness);
     }
 }
 
