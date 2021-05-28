@@ -425,7 +425,7 @@ struct SafePointerType
     constexpr explicit operator bool() const { return *this != Invalid; }
 };
 
-ES2WRN_DISABLE(CLANG,"-Wglobal-constructors")
+ES2WRN_DISABLE(CLANG,global-constructors)
 template <typename Tag>
 const Tag SafePointerType<Tag>::Invalid = { 0 };
 ES2WRN_RESTORE(CLANG)

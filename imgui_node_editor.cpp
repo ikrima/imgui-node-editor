@@ -21,7 +21,7 @@
 # include <streambuf>
 # include <type_traits>
 
-ES2WRN_DISABLE(CLANG,"-Wdouble-promotion")
+ES2WRN_DISABLE(CLANG,double-promotion)
 
 // https://stackoverflow.com/a/8597498
 # define DECLARE_HAS_NESTED(Name, Member)                                          \
